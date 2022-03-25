@@ -1,0 +1,36 @@
+{
+    "server": {
+        "entrypoint": "server/index.ts"
+    },
+    "identity": {
+        "name": "Jitsi",
+        "code": "jitsi",
+        "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPrwVFWPYcS0Wl4YThxzYaeKcTLy9Li2yIGA&usqp=CAU",
+        "description": "Jitsi video call service for Twake",
+        "website": "https://jitsi.org/",
+        "compatibility": ["twake"]
+    },
+    "api": {
+        "hooks_url": "/hook"
+    },
+    "access": {
+        "write": [
+            "messages"
+        ]
+    },
+    "display": {
+        "twake": {
+            "version": 1,
+            "chat": {
+                
+                "input": {"type": "call"},
+                "commands": [
+                    {
+                        "command": "",
+                        "description": "string"
+                    }
+                ]
+            }
+        }
+    }
+}
