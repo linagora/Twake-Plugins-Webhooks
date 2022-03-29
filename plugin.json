@@ -3,11 +3,11 @@
         "entrypoint": "server/index.ts"
     },
     "identity": {
-        "name": "Jitsi",
-        "code": "jitsi",
-        "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPrwVFWPYcS0Wl4YThxzYaeKcTLy9Li2yIGA&usqp=CAU",
-        "description": "Jitsi video call service for Twake",
-        "website": "https://jitsi.org/",
+        "name": "Webhooks",
+        "code": "webhooks",
+        "icon": "https://thumbs.dreamstime.com/b/fishing-hook-transparent-icon-symbol-design-n-nautical-collection-simple-element-vector-illustration-background-130314967.jpg",
+        "description": "Webhooks service for Twake",
+        "website": "https://twake.app",
         "compatibility": ["twake"]
     },
     "api": {
@@ -22,14 +22,9 @@
         "twake": {
             "version": 1,
             "chat": {
-                
-                "input": {"type": "call"},
-                "commands": [
-                    {
-                        "command": "",
-                        "description": "string"
-                    }
-                ]
+                "input": {
+                    "icon": "https://thumbs.dreamstime.com/b/fishing-hook-transparent-icon-symbol-design-n-nautical-collection-simple-element-vector-illustration-background-130314967.jpg"
+                }
             }
         }
     }
