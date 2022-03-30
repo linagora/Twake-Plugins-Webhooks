@@ -6,7 +6,6 @@ export type HookEvent = {
   title?: string;
   icon?: string;
   content: {
-    command?: string;
     channel?: any;
     thread?: any;
     message?: any;
@@ -18,10 +17,7 @@ export type HookEvent = {
       preferences: {
         locale: string;
       };
-      first_name: string;
-      last_name: string;
     };
-    text?: string;
   };
 };
 
