@@ -23,9 +23,11 @@ export const generateHookUrl = (
             "server.prefix1"
           )}/hook?company_id=${linkOptions.company_id}&workspace_id=${
             linkOptions.workspace_id
-          }&channel_id=${linkOptions.channel_id}&user_id=${
-            linkOptions.user_id
-          }&name=${linkOptions.name}&icon=${linkOptions.icon}`,
+          }&channel_id=${linkOptions.channel_id}${
+            linkOptions.thread_id ? `&thread_id=${linkOptions.thread_id}` : ""
+          }&user_id=${linkOptions.user_id}&name=${linkOptions.name}&icon=${
+            linkOptions.icon
+          }`,
         },
         { type: "br" },
         {
@@ -81,4 +83,88 @@ export const generateConfirmMsg = (user: HookEvent["content"]["user"]) => {
       ],
     },
   ];
+};
+
+export const formatMessage = (body: HookEvent) => {
+  //const lang = body.content.user?.preferences.locale || "";
+  console.log("content", body, typeof body.content);
+
+  //If we have an object sent as JSON, with a "content" key being an string => Working
+  if (
+    typeof body === "object" &&
+    body.content &&
+    typeof body.content === "string"
+  ) {
+    return [
+      {
+        type: "twacode",
+        elements: [
+          {
+            type: "compile",
+            content: body.content,
+          },
+        ],
+      },
+    ];
+  }
+  //If we have an object sent as JSON, with a "content" key being an object => Not working
+  else if (
+    typeof body === "object" &&
+    body.content &&
+    typeof body.content === "object"
+  ) {
+    return [
+      {
+        type: "twacode",
+        elements: [body.content],
+      },
+    ];
+  }
+
+  //If we have a string sent in the body => Not Working
+  else if (typeof body === "string") {
+    return [
+      {
+        type: "twacode",
+        elements: [
+          {
+            type: "compile",
+            content: body,
+          },
+        ],
+      },
+    ];
+  }
+
+  //If we have a body object sent as JSON with only one key as a string => Working
+  else if (typeof body === "object" && Object.keys(body).length === 1) {
+    return [
+      {
+        type: "twacode",
+        elements: [
+          {
+            type: "compile",
+            content: Object.values(body)[0],
+          },
+        ],
+      },
+    ];
+    //JSON body => Working
+  } else {
+    return [
+      {
+        type: "twacode",
+        elements: [
+          {
+            type: "mcode",
+            content: JSON.stringify(body, null, " ")
+              .replace(/\{/g, " ")
+              .replace(/\"/g, " ")
+              .replace(/\}/g, " ")
+              .replace(/\,/g, " "),
+          },
+        ],
+      },
+    ];
+  }
 };

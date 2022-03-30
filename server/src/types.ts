@@ -30,6 +30,7 @@ export type LinkOptions = {
   workspace_id: string;
   channel_id: string;
   user_id: string;
+  thread_id?: string;
   name?: string;
   icon?: string;
 };
