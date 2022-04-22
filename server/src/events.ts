@@ -4,6 +4,7 @@ import { HookEvent, LinkOptions } from "./types";
 import { getAccessToken } from "./utils";
 import { generateHookUrl, generateConfirmMsg, formatMessage } from "./messages";
 import config from "config";
+import jwt from "jsonwebtoken";
 
 export const closeMenu = async (event: HookEvent) => {
   const deletedMessage = event.content.message;
@@ -17,6 +18,7 @@ export const closeMenu = async (event: HookEvent) => {
 };
 
 export const webHookMessage = async (event: HookEvent, params: LinkOptions) => {
+  const context = jwt.decode(params.context) as LinkOptions;
   const msg = {
     subtype: "application",
     override: {
@@ -24,14 +26,14 @@ export const webHookMessage = async (event: HookEvent, params: LinkOptions) => {
       picture: event.icon ? event.icon : params.icon,
     },
     blocks: formatMessage(event),
-    user_id: params.user_id,
+    user_id: context.user_id,
     context: { allow_delete: "everyone" },
   };
   await sendMessage(msg, {
-    company_id: params.company_id,
-    workspace_id: params.workspace_id,
-    channel_id: params.channel_id,
-    thread_id: params.thread_id,
+    company_id: context.company_id,
+    workspace_id: context.workspace_id,
+    channel_id: context.channel_id,
+    thread_id: context.thread_id,
   });
 };
 

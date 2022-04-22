@@ -5,7 +5,7 @@
     "identity": {
         "name": "Webhooks",
         "code": "webhooks",
-        "icon": "https://thumbs.dreamstime.com/b/fishing-hook-transparent-icon-symbol-design-n-nautical-collection-simple-element-vector-illustration-background-130314967.jpg",
+        "icon": "/assets/logo.png",
         "description": "Webhooks service for Twake",
         "website": "https://twake.app",
         "compatibility": ["twake"]
@@ -23,7 +23,7 @@
             "version": 1,
             "chat": {
                 "input": {
-                    "icon": "https://thumbs.dreamstime.com/b/fishing-hook-transparent-icon-symbol-design-n-nautical-collection-simple-element-vector-illustration-background-130314967.jpg"
+                    "icon": "/assets/logo.png"
                 }
             }
         }
