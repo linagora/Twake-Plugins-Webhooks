@@ -1,7 +1,5 @@
 # Twake-Plugins-Webhooks
 
-**Not finished**
-
 Webhooks plugin for Twake
 
 ### Install
