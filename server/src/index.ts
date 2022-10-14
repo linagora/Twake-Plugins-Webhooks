@@ -15,11 +15,6 @@ const prefix =
   (prefix_conf ? "/" : "") +
   ((prefix_conf || "") as string).replace(/(^\/|\/$)/g, "");
 
-const origin = ((config.get("server.origin") || "") as string).replace(
-  /(^\/|\/$)/g,
-  ""
-);
-
 const app = express();
 app.use(express.json());
 

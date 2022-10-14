@@ -1,12 +1,12 @@
 {
-    "credentials": {
-        "id": "CREDENTIALS_ID",
-        "secret": "CREDENTIALS_SECRET",
-        "endpoint": "CREDENTIALS_ENDPOINT"
-    },
-    "server": {
-        "port": "SERVER_PORT",
-        "prefix": "SERVER_PREFIX",
-        "endpoint": "SERVER_ENDPOINT"
-    }
+  "credentials": {
+    "id": "CREDENTIALS_ID",
+    "secret": "CREDENTIALS_SECRET",
+    "endpoint": "CREDENTIALS_ENDPOINT"
+  },
+  "server": {
+    "port": "SERVER_PORT",
+    "prefix": "SERVER_PREFIX",
+    "origin": "SERVER_ORIGIN"
+  }
 }
